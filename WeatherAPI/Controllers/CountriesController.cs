@@ -33,7 +33,7 @@ namespace WeatherAPI.Controllers
             }
 
             return await this._unitOfWork.RepCountries
-                .Get(o => o.Name.StartsWith(nameStart.ToLower(), StringComparison.OrdinalIgnoreCase))
+                .Get(o => o.Name.ToLower().StartsWith(nameStart.ToLower()))
                 .Select(o => new CountryDto()
                 {
                     Id = o.Id,
