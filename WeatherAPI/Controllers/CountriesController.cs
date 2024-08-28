@@ -60,12 +60,12 @@ namespace WeatherAPI.Controllers
         [HttpPost]
         public async Task<IResultBool> Post([FromBody] CountryCreateDto item)
         {
-            var exist = await this._unitOfWork
-                .RepCountries.Get(o => o.Name.ToLower().Equals(item.Name.ToLower()))
-                .FirstOrDefaultAsync();
+            //var exist = await this._unitOfWork
+            //    .RepCountries.Get(o => o.Name.ToLower().Equals(item.Name.ToLower()))
+            //    .FirstOrDefaultAsync();
 
-            if (exist != null)
-                return new ResultBool(false, $"Country with name:'{item.Name}' already exists.");
+            //if (exist != null)
+            //    return new ResultBool(false, $"Country with name:'{item.Name}' already exists.");
 
             this._unitOfWork.RepCountries.Add(new Country() { Name = item.Name });
 
@@ -85,6 +85,5 @@ namespace WeatherAPI.Controllers
             this._unitOfWork.RepCountries.Remove(exist);
             return await this._unitOfWork.SaveChangesAsync();
         }
-
     }
 }

@@ -1,8 +1,10 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.EntityFrameworkCore;
+using System.ComponentModel.DataAnnotations;
 
 namespace WeatherAPI.DB.Entities
 {
     // ReSharper disable once ClassWithVirtualMembersNeverInherited.Global
+    [Index(nameof(Name), IsUnique = true)]
     public class Country : BaseEntity
     {
         [Required, MaxLength(256)]

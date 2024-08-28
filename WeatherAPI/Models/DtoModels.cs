@@ -18,5 +18,14 @@
         public string Name { get; set; } = string.Empty;
         public decimal Lat { get; set; }
         public decimal Long { get; set; }
+        public CountryDto? Country { get; set; }
+    }
+
+    public class CityCreateDto
+    {
+        public long CountryId { get; set; }
+        public string Name { get; set; } = string.Empty;
+        public decimal Lat { get; set; }
+        public decimal Long { get; set; }
     }
 }
