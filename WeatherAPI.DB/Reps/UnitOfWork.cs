@@ -29,7 +29,10 @@ namespace WeatherAPI.DB.Reps
             catch (Exception ex)
             {
                 this._logger.LogCritical(ex, "UnitOfWork.SaveChangesAsync failed.");
-                return new ResultBool(false, ex.Message);
+                var message = ex.InnerException != null
+                    ? $"{ex.Message}; Inner: {ex.InnerException.Message}"
+                    : ex.Message;
+                return new ResultBool(false, message);
             }
         }
 
