@@ -85,6 +85,5 @@ namespace WeatherAPI.Controllers
             this._unitOfWork.RepCountries.Remove(exist);
             return await this._unitOfWork.SaveChangesAsync();
         }
-
     }
 }
