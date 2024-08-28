@@ -19,19 +19,18 @@ namespace WeatherAPI.DB.Reps
             this.RepCities = new RepCities(this._ctx);
         }
         
-        public async Task<bool> SaveChangesAsync()
+        public async Task<IResultBool> SaveChangesAsync()
         {
             try
             {
                 await this._ctx.SaveChangesAsync();
-                return true;
+                return new ResultBool(true);
             }
             catch (Exception ex)
             {
                 this._logger.LogCritical(ex, "UnitOfWork.SaveChangesAsync failed.");
+                return new ResultBool(false, ex.Message);
             }
-
-            return true;
         }
 
         #region IDisposable

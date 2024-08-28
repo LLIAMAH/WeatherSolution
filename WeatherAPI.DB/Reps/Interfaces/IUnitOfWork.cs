@@ -5,6 +5,6 @@
         IRepCountries RepCountries { get; }
         IRepCities RepCities { get; }
 
-        Task<bool> SaveChangesAsync();
+        Task<IResultBool> SaveChangesAsync();
     }
 }
