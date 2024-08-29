@@ -1,5 +1,5 @@
 import {Component, EventEmitter, OnDestroy, OnInit, Output} from '@angular/core';
-import {ICityDto, ICountryDto} from "../../services/interfaces/interfaces";
+import {ICityDto, ICountryDto, ITemperatureRequest} from "../../services/interfaces/interfaces";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {Subscription} from "rxjs";
 import {WeatherDataService} from "../../services/weather-data.service";
@@ -21,7 +21,7 @@ import {NgForOf, NgIf} from "@angular/common";
 export class WeatherFormComponent implements OnInit, OnDestroy {
 
   @Output()
-  submitForm = new EventEmitter<any>();
+  submitForm = new EventEmitter<ITemperatureRequest>();
 
   countries: ICountryDto[] = [];
   cities: ICityDto[] = [];

@@ -3,7 +3,7 @@
   <div class="input-group mb-3">
     <span class="input-group-text">Country</span>
     <select id="country" class="form-control" formControlName="country">
-      <option value="">Select a country</option>
+      <option value="" selected disabled="disabled">Select a country</option>
       <option *ngFor="let country of countries" [value]="country.id">{{ country.name }}</option>
     </select>
 

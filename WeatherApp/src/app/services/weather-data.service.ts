@@ -19,14 +19,12 @@ export class WeatherDataService {
     this._cityByCountryId = "/api/Cities/GetByCountryId";
   }
 
-  //getCountries(): Observable<ICountryDto> {
-  getCountries(): Observable<any> {
-    return this.http.get(`${this._apiAddress}${this._countries}`);
+  getCountries(): Observable<ICountryDto[]> {
+    return this.http.get<ICountryDto[]>(`${this._apiAddress}${this._countries}`);
   }
 
-  //getCitiesByCountryId(countryId: number): Observable<ICityDto> {
-  getCitiesByCountryId(countryId: number): Observable<any> {
-    return this.http.get(`${this._apiAddress}${this._cityByCountryId}?id=${countryId}`);
+  getCitiesByCountryId(countryId: number): Observable<ICityDto[]> {
+    return this.http.get<ICityDto[]>(`${this._apiAddress}${this._cityByCountryId}?id=${countryId}`);
   }
 
   getTemperatures(request: ITemperatureRequest): Observable<any> {
