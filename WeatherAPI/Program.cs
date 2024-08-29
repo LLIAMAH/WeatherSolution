@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using WeatherAPI.Configs;
 using WeatherAPI.DB;
 using WeatherAPI.DB.Reps;
 using WeatherAPI.DB.Reps.Interfaces;
@@ -16,7 +17,20 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+var corsData = builder.Configuration.GetSection("CORS")?.Get<Cors>();
+// Configure CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(corsData?.Name ?? Cors.NameDefault,
+        corsBuilder => corsBuilder
+            .WithOrigins(corsData?.WebAddresses ?? Cors.WebAddressesDefault)
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+});
+
 var app = builder.Build();
+
+app.UseCors(corsData?.Name ?? Cors.NameDefault);
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
