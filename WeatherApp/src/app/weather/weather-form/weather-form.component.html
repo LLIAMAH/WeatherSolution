@@ -1,0 +1,22 @@
+<form class="mt-2" [formGroup]="weatherForm" (ngSubmit)="onSubmit()">
+  <div class="input-group mb-3">
+    <span class="input-group-text">Country</span>
+    <select id="country" class="form-control" formControlName="country">
+      <option value="" selected disabled="disabled">Select a country</option>
+      <option *ngFor="let country of countries" [value]="country.id">{{ country.name }}</option>
+    </select>
+
+    <span class="input-group-text">City</span>
+    <select id="city" class="form-control" formControlName="city">
+      <option value="">Select a city</option>
+      <option *ngFor="let city of cities" [value]="city.id">{{ city.name }}</option>
+    </select>
+
+    <span class="input-group-text">From</span>
+    <input type="datetime-local" id="from" class="form-control" formControlName="from">
+    <span class="input-group-text">To</span>
+    <input type="datetime-local" id="to" class="form-control" formControlName="to">
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+</form>

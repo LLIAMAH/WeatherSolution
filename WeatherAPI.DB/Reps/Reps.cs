@@ -12,4 +12,9 @@ namespace WeatherAPI.DB.Reps
     {
         public RepCities(AppDbCtx ctx) : base(ctx) { }
     }
+
+    public class RepTemperatures : Rep<TemperatureData>, IRepTemperatures
+    {
+        public RepTemperatures(AppDbCtx ctx) :base(ctx) { }
+    }
 }

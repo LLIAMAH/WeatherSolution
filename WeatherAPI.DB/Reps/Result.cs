@@ -4,12 +4,12 @@ namespace WeatherAPI.DB.Reps
 {
     public class Result<T> : IResult<T>
     {
-        public T Return { get; }
+        public T Returned { get; }
         public string? Message { get; }
 
         public Result(T ret, string? message = null)
         {
-            this.Return = ret;
+            this.Returned = ret;
             this.Message = message;
         }
     }
