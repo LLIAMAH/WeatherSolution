@@ -1,3 +1,9 @@
+export interface IResult<T> {
+  returned: T;
+  message: string | null;
+}
+export interface IResultBool extends IResult<boolean> { }
+
 export interface ICountryDto {
   id: number,
   name: string,
@@ -23,4 +29,22 @@ export interface ITemperatureRequest
 export interface ITemperature {
   dateTime: Date,
   temperature: number
+}
+
+export interface ICityTemperatureInput {
+  city: ICityDto;
+  tempData: number | undefined
+}
+
+export interface ICityTemperaturePost {
+  cityId: number,
+  tempData: number;
+}
+
+export interface ITempFromProvider {
+  main: ICurrentTemp;
+}
+
+export interface ICurrentTemp{
+  temp: number;
 }

@@ -2,7 +2,7 @@
 {
     public interface IResult<out T>
     {
-        T Return { get; }
+        T Returned { get; }
         string? Message { get; }
     }
 

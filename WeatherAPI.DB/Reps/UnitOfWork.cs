@@ -10,6 +10,7 @@ namespace WeatherAPI.DB.Reps
 
         public IRepCountries RepCountries { get; }
         public IRepCities RepCities { get; }
+        public IRepTemperatures RepTemperatures { get; }
 
         public UnitOfWork(AppDbCtx ctx, ILogger<UnitOfWork> logger)
         {
@@ -17,6 +18,7 @@ namespace WeatherAPI.DB.Reps
             this._ctx = ctx;
             this.RepCountries = new RepCountries(this._ctx);
             this.RepCities = new RepCities(this._ctx);
+            this.RepTemperatures = new RepTemperatures(this._ctx);
         }
         
         public async Task<IResultBool> SaveChangesAsync()

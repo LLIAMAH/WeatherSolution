@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using WeatherAPI.DB;
 
@@ -11,9 +12,10 @@ using WeatherAPI.DB;
 namespace WeatherAPI.DB.Migrations
 {
     [DbContext(typeof(AppDbCtx))]
-    partial class AppDbCtxModelSnapshot : ModelSnapshot
+    [Migration("20240829034902_ChangedTemperatureData")]
+    partial class ChangedTemperatureData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

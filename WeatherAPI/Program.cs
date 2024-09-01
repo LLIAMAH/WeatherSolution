@@ -3,6 +3,7 @@ using WeatherAPI.Configs;
 using WeatherAPI.DB;
 using WeatherAPI.DB.Reps;
 using WeatherAPI.DB.Reps.Interfaces;
+using WeatherAPI.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +14,8 @@ builder.Services.AddDbContext<AppDbCtx>(options =>
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 
 builder.Services.AddControllers();
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -40,8 +43,9 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
 app.UseAuthorization();
+app.UseRouting();
+app.UseMiddleware<RequestLoggingMiddleware>();
 
 app.MapControllers();
 

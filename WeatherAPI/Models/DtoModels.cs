@@ -28,4 +28,10 @@
         public decimal Lat { get; set; }
         public decimal Long { get; set; }
     }
+
+    public class CityTemperaturePost
+    {
+        public long CityId { get; set; }
+        public double TempData { get; set; }
+    }
 }

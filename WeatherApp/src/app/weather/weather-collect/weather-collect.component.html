@@ -1,0 +1,8 @@
+<div>
+  <h2>Temperature Data</h2>
+  <button class="btn btn-warning" (click)="getTemperatures()">Get Temperature Data</button>
+
+  <ul class="list-group" *ngFor="let item of temperatureData">
+    <li class="list-group-item">{{item.city.name}} ({{item.city.country?.name}}) [{{item.city.lat}},{{item.city.long}}]: {{item.tempData}}</li>
+  </ul>
+</div>
