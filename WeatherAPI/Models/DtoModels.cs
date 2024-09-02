@@ -29,9 +29,16 @@
         public decimal Long { get; set; }
     }
 
-    public class CityTemperaturePost
+    public class CityTemperaturePostDto
     {
         public long CityId { get; set; }
         public double TempData { get; set; }
+    }
+
+    public class GraphTemperatureDataDto
+    {
+        public string Name { get; set; } = string.Empty;
+        public DateTime DateTime { get; set; }
+        public double Temperature { get; set; }
     }
 }
